@@ -1,0 +1,22 @@
+body{
+    background-color: white;
+}
+
+body{
+   color: mediumturquoise;
+   transition: color .5s ease-in-out;
+}
+.js-clock{
+    font-size: 50px;
+}
+.clicked{
+    color : rgb(74, 72, 209);
+    transition: color .5s ease-in-out;
+}
+.form,
+.grettings{
+    display: none;
+}
+.showing{
+    display: block;
+}
