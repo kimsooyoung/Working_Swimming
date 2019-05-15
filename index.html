@@ -1,28 +1,30 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <title>Working Swimming</title>
         <meta charset="utf-8">
-        <title>First</title>
         <link rel="stylesheet" href="index.css">
     </head>
     <body>
-        <h1 id="title" class="">Working Swimming!</h1>
-        <div class="js-clock">
-            <h1>00:00</h1>
+        <form class="js-greeting">
+            <h1>일해라, 
+                <input class="greeting-box" type="text" placeholder="Write your name">
+            </h1>
+        </form>
+        </h1>
+        <div id="grid">
+            <img src="work_hard.jpg" style="margin: 20px;">
+            <div>
+                <h2 class="js-clock">
+                </h2>                    
+                <form class="js-todo">
+                    <input class="todo-box" type="text" placeholder="해야 할 일 ">
+                </form>
+                <div class="todos"></div>
+            </div>
         </div>
-        <form class="js-form form">
-            <input type="text" placeholder="What is your name?">
-        </form>
-        <h4 class="js-grettings grettings"></h4>
-        <form class="js-todo-form">
-            <input type="text" placeholder="Write your to do list">
-        </form>
-        <ul class="js-todo-list">
-
-        </ul>
-        <script src="clock.js"></script>
-        <script src="gretting.js"></script>
-        <script src="index.js"></script>
-        <script src="todo.js"></script>
     </body>
+    <script src="todo.js"></script>
+    <script src="greeting.js"></script>
+    <script src="clock.js"></script>
 </html>
