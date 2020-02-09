@@ -7,19 +7,25 @@
     </head>
     <body>
         <form class="js-greeting">
-            <h1>일해라,
+            <h1>Working,
                 <input class="greeting-box" type="text" placeholder="Write your name">
             </h1>
         </form>
-        <!-- <img src="img/work_hard.jpg" style="margin: 20px;"/> -->
-        <h2 class="js-clock"></h2>
-        <div class="todo-container">
-            <form class="js-todo">
-                <input class="todo-box" type="text" placeholder="해야 할 일 ">
-            </form>
-            <ul class="todo-list"></ul>
+        <div class="content-container">
+            <div class="row">
+                <img class='meem-here'/>
+                <div class='column'>
+                    <h2 class="js-clock"></h2>
+                    <div class="todo-container">
+                        <form class="js-todo">
+                            <input class="todo-box" type="text" placeholder="write your todos...">
+                        </form>
+                        <ul class="todo-list"></ul>
+                    </div>
+                    <span class="js-weather"></span>
+                </div>
+            </div>
         </div>
-        <span class="js-weather"></span>
         <script src="src/bg.js"></script>
         <script src="src/todo.js"></script>
         <script src="src/greeting.js"></script>

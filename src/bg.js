@@ -1,13 +1,13 @@
-const body = document.querySelector("body");
+const jsMeem = document.querySelector(".meem-here");
 
-const IMG_NUMBER = 1;
+const IMG_NUMBER = 5;
 
 function paintImg(randomNumber){
     const image = new Image();
     console.log(randomNumber);
-    image.src = `../img/${randomNumber + 1}.jpg`;
-    image.classList.add("bg-image");
-    body.prepend(image);
+    jsMeem.src = `../img/${randomNumber + 1}.jpg`;
+    // jsMeem.classList.add("bg-image");
+    // jsMeem.prepend(image);
 }
 
 function makeRandNum(){
