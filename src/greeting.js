@@ -1,32 +1,29 @@
 const nameContainer = document.querySelector('.js-greeting');
-    input = document.querySelector('input'),
+    nameInput = document.querySelector('.greeting-box'),
     title = nameContainer.querySelector('h1');
 
-const nameClass = 'name'
+const USER_LS = 'name'
+const HIDDEN_CN = "hidden";
 
 function handleSubmit(event){
     event.preventDefault();
-    const userName = input.value;
+    const userName = nameInput.value;
     paintName(userName);
-    localStorage.setItem(nameClass, userName);
+    localStorage.setItem(USER_LS, userName);
 }
 
 function askName(){
-    const name = nameContainer.addEventListener('submit', handleSubmit);
+    nameContainer.addEventListener('submit', handleSubmit);
 }
 
 function paintName(userName){
-    input.classList.add('hidden');
+    nameInput.classList.add(HIDDEN_CN);
     title.innerText = `일해라, ${userName} !!!`;
 }
 
 function loadName(){
-    const userName = localStorage.getItem(nameClass);
-    if(userName === null){
-        askName();
-    }else{
-        paintName(userName);
-    }
+    const userName = localStorage.getItem(USER_LS);
+    userName === null ? askName():paintName(userName);
 }
 
 function init(){

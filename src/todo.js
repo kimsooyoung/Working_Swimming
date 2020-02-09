@@ -1,57 +1,59 @@
 const todoContainer = document.querySelector('.js-todo'),
     todoInput = todoContainer.querySelector('input'),
-    todos = document.querySelector('.todos');
+    todoList = document.querySelector('.todo-list');
 
-const TODO_CLASS = 'todos';
-let todoList = [];
+const TODO_LS = 'todos';
+let todos = [];
 
 function saveTodos(){
-    localStorage.setItem(TODO_CLASS, JSON.stringify(todoList));
-}
-function handleDelTodo(event){
-    const button = event.target;
-    const li     = button.parentNode;
-    todos.removeChild(li);
-    const clean_todos = todoList.filter(function(todo){
-        return todo.id !== parseInt(li.id);
-    });
-    todoList = clean_todos;
-    saveTodos(todoList);
+    localStorage.setItem(TODO_LS, JSON.stringify(todos));
 }
 
-function paintTodos(todoText){
-    const p = document.createElement('p');
+function deleteTodo(event){
+    const button = event.target;
+    const li = button.parentNode;
+    todoList.removeChild(li);
+    const filteredTodos = todos.filter(function(todo){
+        return todo.id !== parseInt(li.id);
+    });
+    todos = filteredTodos;
+    saveTodos(todos);
+}
+
+function paintTodo(text){
+    const li = document.createElement('li');
     const delButton = document.createElement('button');
     const span = document.createElement('span');
-    const todoId= todoList.length + 1;
-    span.innerText = ' ' + todoText;
+    const id= todos.length + 1;
+    span.innerText = ' ' + text;
     delButton.innerText = 'X';
-    delButton.addEventListener('click', handleDelTodo);
-    p.appendChild(delButton);
-    p.appendChild(span);
-    p.id = todoId;
-    todos.appendChild(p);
+    delButton.addEventListener('click', deleteTodo);
+    li.appendChild(delButton);
+    li.appendChild(span);
+    li.id = id;
+    todoList.appendChild(li);
     const todoObj = {
-        text: todoText,
-        id:   todoId
+        text,
+        id
     };
-    todoList.push(todoObj);
+    todos.push(todoObj);
     saveTodos();
 }
 
 function handleSubmit(event){
     event.preventDefault();
-    const todo = todoInput.value;
-    paintTodos(todo);
+    const currentValue = todoInput.value;
+    paintTodo(currentValue);
+    console.log(currentValue);
     todoInput.value = '';
 }
 
 function loadTodos(){
-    const todos = localStorage.getItem(TODO_CLASS);
-    if(todos !== null){
-        const parsedTodos = JSON.parse(todos);
+    const loadedTodos = localStorage.getItem(TODO_LS);
+    if(loadedTodos !== null){
+        const parsedTodos = JSON.parse(loadedTodos);
         parsedTodos.forEach(function(todo){
-            paintTodos(todo.text);
+            paintTodo(todo.text);
         });
     }
 }
