@@ -5,3 +5,9 @@
 ## Git-hub page address
 
 https://kimsooyoung.github.io/Working_Swimming/
+
+## Example
+-----
+<div>
+  <img src="https://user-images.githubusercontent.com/12381733/74104852-40101a80-4b9c-11ea-8ecf-37987278c405.PNG" >
+</div>
