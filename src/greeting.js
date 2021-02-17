@@ -6,7 +6,7 @@ const USER_LS = 'name'
 const HIDDEN_CN = "hidden";
 
 function handleSubmit(event){
-    event.preventDefault();
+    event.preventDefault(); // prevent refresh
     const userName = nameInput.value;
     paintName(userName);
     localStorage.setItem(USER_LS, userName);
